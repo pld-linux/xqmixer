@@ -1,0 +1,11 @@
+--- xqmixer-2.0.1/xqmixer/helpers/helpers.cpp.orig	Sat Feb 15 00:05:29 2003
++++ xqmixer-2.0.1/xqmixer/helpers/helpers.cpp	Tue Jul 22 14:58:48 2003
+@@ -121,7 +121,7 @@
+ void FontToParameter(const QFont&fnt,std::string&name,int&size,int&weight,
+ 		     bool&italic)
+ {
+-    name = fnt.family();
++    name = (const char*)fnt.family();
+     size = fnt.pointSize();
+     weight = fnt.weight();
+     italic = fnt.italic();
