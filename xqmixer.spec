@@ -9,10 +9,11 @@ Source0:	http://www.webeifer.de/alwin/programs/download/xqmixer/%{name}-%{versio
 # Source0-md5:	7f39b74afd013e9427c558959a7a96af
 Patch0:		%{name}-gcc33.patch
 URL:		http://www.webeifer.de/alwin/programs/xqmixer/
-BuildRequires:	kdelibs-devel >= 3.0
-BuildRequires:	qt-devel >= 3.0
+BuildRequires:	kdelibs-devel >= 3.1.1
+BuildRequires:	qt-devel >= 3.1.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+%define		_prefix		/usr/X11R6
 %define		_htmldir	/usr/share/doc/kde/HTML
 
 %description
