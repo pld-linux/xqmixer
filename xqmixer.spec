@@ -1,17 +1,19 @@
 Summary:	A better soundmixer tool
 Summary(pl):	Narzêdzie do obs³ugi miksera
 Name:		xqmixer
-Version:	1.11
+Version:	2.0.1
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://www.webeifer.de/alwin/programs/download/xqmixer/%{name}-%{version}.tar.gz
-# Source0-md5:	1390050954aae4212b1cde5301073085
-URL:		http://www.webeifer.de/alwin/programs/xqmixer/xqmixer.html
-BuildRequires:	kdelibs-devel
-BuildRequires:	qt-devel
+# Source0-md5:	7f39b74afd013e9427c558959a7a96af
+Patch0:		%{name}-gcc33.patch
+URL:		http://www.webeifer.de/alwin/programs/xqmixer/
+BuildRequires:	kdelibs-devel >= 3.0
+BuildRequires:	qt-devel >= 3.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+%define		_htmldir	/usr/share/doc/kde/HTML
 
 %description
 XqMixer is a soundmixer, which supports USS/OSS. This version is build
@@ -26,22 +28,29 @@ miksera oraz wy¶wietla bie¿±ce warto¶ci rozmaitych ustawieñ miksera.
 
 %prep
 %setup -q
+%patch -p1
 
 %build
-%configure2_13 --with-qt-includes=/usr/X11R6/include/qt
+kde_appsdir="%{_applnkdir}"; export kde_appsdir
+kde_htmldir="%{_htmldir}"; export kde_htmldir
+kde_icondir="%{_pixmapsdir}"; export kde_icondir
+%configure
+
 %{__make} 
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__make} install prefix=$RPM_BUILD_ROOT%{_prefix}
+
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
+
+%find_lang %{name} --with-kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/XqMixer
-/opt/kde/share/doc/HTML/en/XqMixer/index.html
-/opt/kde/share/applnk/Multimedia/XqMixer.kdelnk
-%{_datadir}/icons/XqMixer.xpm
-%{_datadir}/icons/mini/XqMixer.xpm
+%attr(755,root,root) %{_bindir}/xqmixer
+%{_pixmapsdir}/*/*/apps/*.png
+%{_applnkdir}/Multimedia/*.desktop
