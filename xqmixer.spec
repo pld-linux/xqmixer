@@ -6,6 +6,7 @@ Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://www.webeifer.de/alwin/programs/download/xqmixer/%{name}-%{version}.tar.gz
+# Source0-md5:	1390050954aae4212b1cde5301073085
 URL:		http://www.webeifer.de/alwin/programs/xqmixer/xqmixer.html
 BuildRequires:	kdelibs-devel
 BuildRequires:	qt-devel
