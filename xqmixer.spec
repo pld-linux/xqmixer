@@ -11,8 +11,6 @@ BuildRequires:	kdelibs-devel
 BuildRequires:	qt-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_prefix		/usr/X11R6
-%define		_mandir		/usr/X11R6/man
 
 %description
 XqMixer is a soundmixer, which supports USS/OSS. This version is build
