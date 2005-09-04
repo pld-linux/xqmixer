@@ -11,9 +11,8 @@ Patch0:		%{name}-gcc33.patch
 URL:		http://www.webeifer.de/alwin/programs/xqmixer/
 BuildRequires:	kdelibs-devel >= 3.0
 BuildRequires:	qt-devel >= 3.0
+BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_htmldir	/usr/share/doc/kde/HTML
 
 %description
 XqMixer is a soundmixer, which supports USS/OSS. This version is build
@@ -31,18 +30,19 @@ miksera oraz wy¶wietla bie¿±ce warto¶ci rozmaitych ustawieñ miksera.
 %patch -p1
 
 %build
-kde_appsdir="%{_applnkdir}"; export kde_appsdir
-kde_htmldir="%{_htmldir}"; export kde_htmldir
-kde_icondir="%{_pixmapsdir}"; export kde_icondir
+kde_htmldir="%{_kdedocdir}"; export kde_htmldir
 %configure
 
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_desktopdir}/kde
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+mv -f $RPM_BUILD_ROOT%{_datadir}/applnk/Multimedia/xqmixer.desktop $RPM_BUILD_ROOT%{_desktopdir}/kde
 
 %find_lang %{name} --with-kde
 
@@ -52,5 +52,5 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/xqmixer
-%{_pixmapsdir}/*/*/apps/*.png
-%{_applnkdir}/Multimedia/*.desktop
+%{_iconsdir}/hicolor/*/apps/*.png
+%{_desktopdir}/kde/*.desktop
