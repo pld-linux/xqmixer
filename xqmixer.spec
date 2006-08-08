@@ -27,7 +27,7 @@ miksera oraz wy¶wietla bie¿±ce warto¶ci rozmaitych ustawieñ miksera.
 
 %prep
 %setup -q
-%patch -p1
+%patch0 -p1
 
 %build
 kde_htmldir="%{_kdedocdir}"; export kde_htmldir
