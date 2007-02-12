@@ -1,5 +1,5 @@
 Summary:	A better soundmixer tool
-Summary(pl.UTF-8):   Narzędzie do obsługi miksera
+Summary(pl.UTF-8):	Narzędzie do obsługi miksera
 Name:		xqmixer
 Version:	2.0.1
 Release:	1
