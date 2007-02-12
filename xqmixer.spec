@@ -1,5 +1,5 @@
 Summary:	A better soundmixer tool
-Summary(pl):	Narzêdzie do obs³ugi miksera
+Summary(pl.UTF-8):   NarzÄ™dzie do obsÅ‚ugi miksera
 Name:		xqmixer
 Version:	2.0.1
 Release:	1
@@ -20,10 +20,10 @@ for the KDE. It can save and restore various settings of mixer and has
 a display for the current values of the various kinds of
 mixer-settings.
 
-%description -l pl
-XqMixer jest mikserem d¼wiêku obs³uguj±cym USS/OSS. Tê wersjê
-zbudowano dla KDE. Mo¿e ona zachowywaæ i przywracaæ ró¿ne ustawienia
-miksera oraz wy¶wietla bie¿±ce warto¶ci rozmaitych ustawieñ miksera.
+%description -l pl.UTF-8
+XqMixer jest mikserem dÅºwiÄ™ku obsÅ‚ugujÄ…cym USS/OSS. TÄ™ wersjÄ™
+zbudowano dla KDE. MoÅ¼e ona zachowywaÄ‡ i przywracaÄ‡ rÃ³Å¼ne ustawienia
+miksera oraz wyÅ›wietla bieÅ¼Ä…ce wartoÅ›ci rozmaitych ustawieÅ„ miksera.
 
 %prep
 %setup -q
