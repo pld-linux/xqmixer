@@ -10,7 +10,7 @@ Source0:	http://www.webeifer.de/alwin/programs/download/xqmixer/%{name}-%{versio
 Patch0:		%{name}-gcc33.patch
 URL:		http://www.webeifer.de/alwin/programs/xqmixer/
 BuildRequires:	kdelibs-devel >= 3.0
-BuildRequires:	qt-devel >= 3.0
+BuildRequires:	qt-devel >= 1:3.0
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
